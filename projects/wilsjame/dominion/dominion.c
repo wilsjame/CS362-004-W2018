@@ -96,7 +96,7 @@ int play_mine(struct gameState *state, int choice1, int choice2, int currentPlay
 	    return -1;
 	  }
 
-	if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) )
+	if ( (getCost(state->hand[currentPlayer][choice1]) + 4) > getCost(choice2) ) /* BUG: Gain treasure costing up to 4 more instead of 3 */
 	  {
 	    return -1;
 	  }
