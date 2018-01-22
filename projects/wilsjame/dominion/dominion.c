@@ -5,6 +5,22 @@
 #include <math.h>
 #include <stdlib.h>
 
+/* Refactored cards */
+int play_smithy(int currentPlayer, struct gameState *state, int handPos)
+{
+	int i;
+
+      //+3 Cards
+      for (i = 0; i < 3; i++)
+	{
+	  drawCard(currentPlayer, state);
+	}
+			
+      //discard card from hand
+      discardCard(handPos, currentPlayer, state, 0);
+      return 0;
+}
+
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
     return 1;
@@ -643,6 +659,8 @@ int getCost(int cardNumber)
   return -1;
 }
 
+/********** BEGINNING of cardEffct **********/
+/* This is where the refactor and bug additions will be done for assignment-2 */
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
   int i;
@@ -662,7 +680,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     nextPlayer = 0;
   }
   
-	
+  /* Refactoring switch statement so cards are implemented in their own functions */
   //uses switch to select card and perform actions
   switch( card ) 
     {
@@ -828,7 +846,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
       return 0;
 		
+    /***** Refactor smithy *****/
     case smithy:
+      return play_smithy(currentPlayer, state, handPos);
+      /*
       //+3 Cards
       for (i = 0; i < 3; i++)
 	{
@@ -838,6 +859,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
       return 0;
+      */
 		
     case village:
       //+1 Card
@@ -1222,6 +1244,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	
   return -1;
 }
+
+/********** END of cardEffct **********/
 
 int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag)
 {
