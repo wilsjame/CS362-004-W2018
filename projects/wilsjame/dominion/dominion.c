@@ -78,6 +78,39 @@ int play_council_room(int currentPlayer, struct gameState *state, int handPos)
       return 0;
 }
 
+/* Remodel */
+int play_remodel(struct gameState *state, int choice1, int choice2, int currentPlayer, int handPos)
+{
+	int i;
+	int j;
+
+      j = state->hand[currentPlayer][choice1];  //store card we will trash
+
+      if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) )
+	{
+	  return -1;
+	}
+
+      gainCard(choice2, state, 0, currentPlayer);
+
+      //discard card from hand
+      discardCard(handPos, currentPlayer, state, 0);
+
+      //discard trashed card
+      for (i = 0; i < state->handCount[currentPlayer]; i++)
+	{
+	  if (state->hand[currentPlayer][i] == j)
+	    {
+	      discardCard(i, currentPlayer, state, 0);			
+	      break;
+	    }
+	}
+
+
+      return 0;
+}
+
+
 /***** End refactoring *****/
 
 
@@ -889,7 +922,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 			
       return 0;
 			
+    /***** Refactor remodel*****/
     case remodel:
+      return play_remodel(state, choice1, choice2, currentPlayer, handPos);
+
+      /*
       j = state->hand[currentPlayer][choice1];  //store card we will trash
 
       if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) )
@@ -914,6 +951,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 
       return 0;
+      */
 		
     /***** Refactor smithy *****/
     case smithy:
