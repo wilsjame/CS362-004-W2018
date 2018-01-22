@@ -78,6 +78,47 @@ int play_council_room(int currentPlayer, struct gameState *state, int handPos)
       return 0;
 }
 
+/* Mine */
+int play_mine(struct gameState *state, int choice1, int choice2, int currentPlayer, int handPos)
+{
+	int i;
+	int j;
+
+	j = state->hand[currentPlayer][choice1];  //store card we will trash
+
+	if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
+	  {
+	    return -1;
+	  }
+		  
+	if (choice2 > treasure_map || choice2 < curse)
+	  {
+	    return -1;
+	  }
+
+	if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) )
+	  {
+	    return -1;
+	  }
+
+	gainCard(choice2, state, 2, currentPlayer);
+
+	//discard card from hand
+	discardCard(handPos, currentPlayer, state, 0);
+
+	//discard trashed card
+	for (i = 0; i < state->handCount[currentPlayer]; i++)
+	  {
+	    if (state->hand[currentPlayer][i] == j)
+	      {
+		discardCard(i, currentPlayer, state, 0);			
+		break;
+	      }
+	  }
+			  
+	return 0;
+}
+
 /* Remodel */
 int play_remodel(struct gameState *state, int choice1, int choice2, int currentPlayer, int handPos)
 {
@@ -109,7 +150,6 @@ int play_remodel(struct gameState *state, int choice1, int choice2, int currentP
 
       return 0;
 }
-
 
 /***** End refactoring *****/
 
@@ -887,7 +927,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     case gardens:
       return -1;
 			
+    /***** Refactor mine*****/
     case mine:
+	return play_mine(state, choice1, choice2, currentPlayer, handPos);
+      /*
       j = state->hand[currentPlayer][choice1];  //store card we will trash
 
       if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
@@ -921,11 +964,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	}
 			
       return 0;
+      */
 			
     /***** Refactor remodel*****/
     case remodel:
       return play_remodel(state, choice1, choice2, currentPlayer, handPos);
-
       /*
       j = state->hand[currentPlayer][choice1];  //store card we will trash
 
