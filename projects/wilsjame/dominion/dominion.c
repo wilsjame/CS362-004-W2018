@@ -5,7 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-/***** Refactored cards *****/
+/***** Refactored cards - now with bugs!*****/
 
 /* Smithy */
 int play_smithy(int currentPlayer, struct gameState *state, int handPos)
@@ -13,7 +13,7 @@ int play_smithy(int currentPlayer, struct gameState *state, int handPos)
 	int i;
 
       //+3 Cards
-      for (i = 0; i < 3; i++)
+        for (i = 1; i < 3; i++) /* BUG: i = 1 instead of i = 0 */
 	{
 	  drawCard(currentPlayer, state);
 	}
@@ -42,7 +42,7 @@ int play_adventurer(int drawntreasure, struct gameState *state, int currentPlaye
 		  z++;
 		}
 	      }
-	      while(z-1>=0){
+	      while(z-1>=0){ /* BUG: '>' instead of '>=' */
 		state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
 		z=z-1;
 	      }
