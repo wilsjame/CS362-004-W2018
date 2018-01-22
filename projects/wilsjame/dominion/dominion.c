@@ -42,7 +42,7 @@ int play_adventurer(int drawntreasure, struct gameState *state, int currentPlaye
 		  z++;
 		}
 	      }
-	      while(z-1>=0){ /* BUG: '>' instead of '>=' */
+	      while(z-1>0){ /* BUG: '>' instead of '>=' */
 		state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
 		z=z-1;
 	      }
@@ -55,7 +55,7 @@ int play_council_room(int currentPlayer, struct gameState *state, int handPos)
 	int i;
 
       //+4 Cards
-      for (i = 0; i < 4; i++)
+      for (i = 0; i < 3; i++) /* BUG: draw 3 cards instead of 4 */
 	{
 	  drawCard(currentPlayer, state);
 	}
