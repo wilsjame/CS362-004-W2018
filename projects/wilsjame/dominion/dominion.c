@@ -466,6 +466,7 @@ int handCard(int handPos, struct gameState *state) {
   return state->hand[currentPlayer][handPos];
 }
 
+/***** Use this function for Unit test 3 *****/
 int supplyCount(int card, struct gameState *state) {
   return state->supplyCount[card];
 }
