@@ -19,9 +19,13 @@ testUpdateCoins: testUpdateCoins.c dominion.o rngs.o
 unittest1: unittest1.c dominion.o rngs.o
 	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
 
+#Testing updateCoins
+unittest2: unittest2.c dominion.o rngs.o
+	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
+
 ### End unit tests
 ### Run tests
-runUnitTests: unittest1
+runUnitTests: unittest1 unittest2
 	./unittest1 &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
@@ -29,6 +33,12 @@ runUnitTests: unittest1
 	echo "isGameOver stats" >> unittestresult.out
 	gcov -abcfu dominion.c | sed -n '/isGameOver/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 
+	./unittest2 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Unit Test 2 Summary" >> unittestresult.out
+	echo "updateCoins stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/updateCoins/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 ### End run tests
 
 testDrawCard: testDrawCard.c dominion.o rngs.o

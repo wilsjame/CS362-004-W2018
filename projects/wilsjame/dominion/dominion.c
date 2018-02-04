@@ -1473,6 +1473,7 @@ int gainCard(int supplyPos, struct gameState *state, int toFlag, int player)
   return 0;
 }
 
+/***** Use this function for Unit test 2 *****/
 int updateCoins(int player, struct gameState *state, int bonus)
 {
   int i;
