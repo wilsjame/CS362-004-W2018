@@ -536,6 +536,7 @@ int endTurn(struct gameState *state) {
   return 0;
 }
 
+/***** Use this function for Unit test 1 *****/
 int isGameOver(struct gameState *state) {
   int i;
   int j;
