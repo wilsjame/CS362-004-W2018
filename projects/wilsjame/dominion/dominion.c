@@ -52,6 +52,7 @@ int play_adventurer(int drawntreasure, struct gameState *state, int currentPlaye
 }
 
 /* Council Room */
+/* Card Test 3 */
 int play_council_room(int currentPlayer, struct gameState *state, int handPos)
 {
 	int i;
