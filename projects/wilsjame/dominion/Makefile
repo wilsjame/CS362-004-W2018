@@ -35,9 +35,14 @@ unittest4: unittest4.c dominion.o rngs.o
 cardtest1: cardtest1.c dominion.o rngs.o
 	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
 
+#Testing Adventurer
+cardtest2: cardtest2.c dominion.o rngs.o
+	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
+
+
 ### End unit tests
 ### Run tests
-runUnitTests: unittest1 unittest2 unittest3 unittest4 cardtest1
+runUnitTests: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2
 	./unittest1 &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
@@ -73,6 +78,14 @@ runUnitTests: unittest1 unittest2 unittest3 unittest4 cardtest1
 	echo "Smithy stats" >> unittestresult.out
 	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 
+	./cardtest2 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Card Test 2 Summary" >> unittestresult.out
+	echo "Adventurer stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+
 ### End run tests
 
 testDrawCard: testDrawCard.c dominion.o rngs.o
@@ -102,4 +115,4 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2

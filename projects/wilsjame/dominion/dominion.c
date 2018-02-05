@@ -25,6 +25,7 @@ int play_smithy(int currentPlayer, struct gameState *state, int handPos)
 }
 
 /* Adventurer */
+/* Card Test 2 */
 int play_adventurer(int drawntreasure, struct gameState *state, int currentPlayer, int temphand[], int z)
 {
 	int cardDrawn;
