@@ -154,6 +154,21 @@ int play_remodel(struct gameState *state, int choice1, int choice2, int currentP
       return 0;
 }
 
+/* Village */
+/* Card Test 4 */
+int play_village(int currentPlayer, struct gameState *state, int handPos)
+{
+      //+1 Card
+      drawCard(currentPlayer, state);
+			
+      //+2 Actions
+      state->numActions = state->numActions + 2;
+			
+      //discard played card from hand
+      discardCard(handPos, currentPlayer, state, 0);
+      return 0;
+}
+
 /***** End refactoring *****/
 
 
@@ -1017,7 +1032,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
       */
 		
+
+    /***** Refactored village for assignment-3 (no new bugs introduced) *****/
     case village:
+      return play_village(currentPlayer, state, handPos);
+      /*
       //+1 Card
       drawCard(currentPlayer, state);
 			
@@ -1027,6 +1046,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       //discard played card from hand
       discardCard(handPos, currentPlayer, state, 0);
       return 0;
+      */
 		
     case baron:
       state->numBuys++;//Increase buys by 1!
