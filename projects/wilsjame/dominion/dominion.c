@@ -457,6 +457,7 @@ int buyCard(int supplyPos, struct gameState *state) {
   return 0;
 }
 
+/***** Use this function for Unit test 4 *****/
 int numHandCards(struct gameState *state) {
   return state->handCount[ whoseTurn(state) ];
 }

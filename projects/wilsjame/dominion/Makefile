@@ -27,6 +27,10 @@ unittest2: unittest2.c dominion.o rngs.o
 unittest3: unittest3.c dominion.o rngs.o
 	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
 
+#Testing numHandCards
+unittest4: unittest4.c dominion.o rngs.o
+	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
+
 ### End unit tests
 ### Run tests
 runUnitTests: unittest1 unittest2 unittest3
@@ -50,6 +54,14 @@ runUnitTests: unittest1 unittest2 unittest3
 	echo "Unit Test 3 Summary" >> unittestresult.out
 	echo "supplyCount stats" >> unittestresult.out
 	gcov -abcfu dominion.c | sed -n '/updateCoins/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./unittest4 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Unit Test 4 Summary" >> unittestresult.out
+	echo "numHandCards stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/numHandCards/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
 ### End run tests
 
 testDrawCard: testDrawCard.c dominion.o rngs.o
