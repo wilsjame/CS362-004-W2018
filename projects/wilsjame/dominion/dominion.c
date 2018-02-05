@@ -8,6 +8,7 @@
 /***** Refactored cards - now with bugs!*****/
 
 /* Smithy */
+/* Card Test 1 */
 int play_smithy(int currentPlayer, struct gameState *state, int handPos)
 {
 	int i;
