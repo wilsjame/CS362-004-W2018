@@ -1,5 +1,5 @@
 /* cardtest3.c
- * Unit test for adventurer card from the dominion-base code, dominion.c.
+ * Unit test for council room card from the dominion-base code, dominion.c.
  * Include the following lines in Makefile:
  *
  * cardtest3: cardtest3.c dominion.o rngs.o
