@@ -15,6 +15,8 @@ playdom: dominion.o playdom.c
 #####################
 
 ### Assignment 4 random tests:
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 
 ### End assignment 4 random tests
 
@@ -63,7 +65,28 @@ playdom: dominion.o playdom.c
 #################
 
 ### Assignment 4
+unittestresults.out: randomtestadventurer
+	./randomtestadventurer &> randomtestresult.out
+	gcov dominion.c >> randomtestresult.out
+	cat dominion.c.gcov >> randomtestresult.out
+	echo "Random Test Adventurer Summary" >> randomtestresult.out
+	echo "Adventurer stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
 
+#	./cardtest1 >> unittestresult.out
+#	gcov dominion.c >> unittestresult.out
+#	cat dominion.c.gcov >> unittestresult.out
+#	echo "Card Test 1 Summary" >> unittestresult.out
+#	echo "Smithy stats" >> unittestresult.out
+#	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+#
+#	./cardtest2 >> unittestresult.out
+#	gcov dominion.c >> unittestresult.out
+#	cat dominion.c.gcov >> unittestresult.out
+#	echo "Card Test 2 Summary" >> unittestresult.out
+#	echo "Adventurer stats" >> unittestresult.out
+#	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+#
 ### End assignment 4
 
 ### Assignment 3 
@@ -155,4 +178,4 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer
