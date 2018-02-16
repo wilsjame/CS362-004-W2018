@@ -9,6 +9,7 @@
 
 /* Smithy */
 /* Card Test 1 */
+/* Random tester card1 */
 int play_smithy(int currentPlayer, struct gameState *state, int handPos)
 {
 	int i;

@@ -18,6 +18,9 @@ playdom: dominion.o playdom.c
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+
 ### End assignment 4 random tests
 
 ### Assignment 3 unit tests:
@@ -65,13 +68,21 @@ randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 #################
 
 ### Assignment 4
-unittestresults.out: randomtestadventurer
+randomtestresult.out: randomtestadventurer randomtestcard1
 	./randomtestadventurer &> randomtestresult.out
 	gcov dominion.c >> randomtestresult.out
 	cat dominion.c.gcov >> randomtestresult.out
 	echo "Random Test Adventurer Summary" >> randomtestresult.out
 	echo "Adventurer stats" >> unittestresult.out
 	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
+
+	./randomtestcard1 >> randomtestresult.out
+	gcov dominion.c >> randomtestresult.out
+	cat dominion.c.gcov >> randomtestresult.out
+	echo "Random Test Card 1 Smithy Summary" >> randomtestresult.out
+	echo "Smithy stats" >> randomtestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
+
 
 #	./cardtest1 >> unittestresult.out
 #	gcov dominion.c >> unittestresult.out
@@ -171,11 +182,10 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer randomtestcard1
