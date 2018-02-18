@@ -21,6 +21,9 @@ randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 randomtestcard1: randomtestcard1.c dominion.o rngs.o
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
 ### End assignment 4 random tests
 
 ### Assignment 3 unit tests:
@@ -68,7 +71,8 @@ randomtestcard1: randomtestcard1.c dominion.o rngs.o
 #################
 
 ### Assignment 4
-randomtestresult.out: randomtestadventurer randomtestcard1
+randomtestresult.out: randomtestadventurer randomtestcard1 randomtestcard2
+
 	./randomtestadventurer &> randomtestresult.out
 	gcov dominion.c >> randomtestresult.out
 	cat dominion.c.gcov >> randomtestresult.out
@@ -83,6 +87,12 @@ randomtestresult.out: randomtestadventurer randomtestcard1
 	echo "Smithy stats" >> randomtestresult.out
 	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
 
+	./randomtestcard2 >> randomtestresult.out
+	gcov dominion.c >> randomtestresult.out
+	cat dominion.c.gcov >> randomtestresult.out
+	echo "Random Test Card 2 Village Summary" >> randomtestresult.out
+	echo "Village stats" >> randomtestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_village/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
 
 #	./cardtest1 >> unittestresult.out
 #	gcov dominion.c >> unittestresult.out
@@ -188,4 +198,4 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer randomtestcard1
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer randomtestcard1 randomtestcard2
