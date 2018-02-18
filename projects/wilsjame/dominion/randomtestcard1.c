@@ -33,7 +33,7 @@ int main()
 	/* Initialize a game state and player cards */
 	initializeGame(numPlayers, k1, randomSeed, &G);
 
-	printf("----------------Card Test 1: %s----------------\n", TESTCARD);
+	printf("----------------Random Card Test 1: %s----------------\n", TESTCARD);
 
 	/* Begin random tester */
 	int randomHandCount;
