@@ -158,6 +158,7 @@ int play_remodel(struct gameState *state, int choice1, int choice2, int currentP
 
 /* Village */
 /* Card Test 4 */
+/* Random tester card 2 */
 int play_village(int currentPlayer, struct gameState *state, int handPos)
 {
       //+1 Card
