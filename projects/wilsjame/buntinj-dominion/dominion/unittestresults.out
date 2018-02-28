@@ -1,0 +1,80 @@
+TESTING supplyCount():
+There were 0 errrors. End of testing for supplyCount().
+supplyCard stats
+Lines executed:100.00% of 2
+No branches
+No calls
+
+TESTING numHandCards():
+There were 0 errrors. End of testing for numHandCards().
+numHandCards stats
+Lines executed:100.00% of 2
+No branches
+No calls
+
+TESTING getCost():
+There were 0 errrors. End of testing for getCost().
+getCost stats
+Lines executed:100.00% of 30
+No branches
+No calls
+
+TESTING isGameOver():
+Error when the last three supplycounts are zero.
+There were 1 errrors. End of testing for isGameOver().
+isGameOver stats
+Lines executed:100.00% of 10
+No branches
+No calls
+
+----------------- Testing Card: smithy ----------------
+Error with the number of cards drawn by smithy
+Expected: 3, Actual: 4
+Error with the number of cards removed from the deck.
+Expected: 3 Actual: 4
+Error with the top discard card.
+Expected: 13 Actual: 0
+Error with the number of cards discarded.
+Expected: 1 Actual: 0
+There were 4 errors. Finished testing smithy card.
+cardEffect stats
+Lines executed:8.72% of 195
+No branches
+No calls
+
+----------------- Testing Card: great_hall ----------------
+Error with the top discard card.
+Expected: 16 Actual: 0
+Error with the number of cards discarded.
+Expected: 1 Actual: 0
+There were 2 errors. Finished testing great_hall card.
+cardEffect stats
+Lines executed:8.72% of 195
+No branches
+No calls
+
+----------------- Testing Card: outpost ----------------
+Error with the top discard card.
+Expected: 23 Actual: 0
+Error with the number of cards discarded.
+Expected: 1 Actual: 0
+There were 2 errors. Finished testing outpost card.
+cardEffect stats
+Lines executed:8.72% of 195
+No branches
+No calls
+
+----------------- Testing Card: adventurer ----------------
+Error with the number of treasure cards drawn in test 1.
+Expected: 2 Actual: 3
+Error with the number of treasure cards drawn in test 2.
+Expected: 2 Actual: 3
+Error with the number of treasure cards drawn in test 3.
+Expected: 2 Actual: 3
+There were 3 errors. Finished testing adventurer card.
+
+cardEffect stats
+Lines executed:8.72% of 195
+No branches
+No calls
+
