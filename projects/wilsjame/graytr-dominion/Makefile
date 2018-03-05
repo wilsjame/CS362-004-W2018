@@ -14,7 +14,7 @@ playdom: dominion.o playdom.c
 ### Compile Tests ###
 #####################
 
-### Assignment 4 random tests:
+### Assignment 4,5 random tests:
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 
@@ -26,41 +26,42 @@ randomtestcard2: randomtestcard2.c dominion.o rngs.o
 
 ### End assignment 4 random tests
 
-### Assignment 3 unit tests:
+### Assignment 3,5 unit tests:
 #testUpdateCoins: testUpdateCoins.c dominion.o rngs.o
 #	gcc -o testUpdateCoins -g testUpdateCoins.c dominion.o rngs.o $(CFLAGS)
-#
+
+
 ##Testing isGameOver
-#unittest1: unittest1.c dominion.o rngs.o
-#	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
-#
+unittest1: unittest1.c dominion.o rngs.o
+	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
+
 ##Testing updateCoins
-#unittest2: unittest2.c dominion.o rngs.o
-#	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
-#
+unittest2: unittest2.c dominion.o rngs.o
+	gcc -o unittest2 -g unittest2.c dominion.o rngs.o $(CFLAGS)
+
 ##Testing supplyCount
-#unittest3: unittest3.c dominion.o rngs.o
-#	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
-#
+unittest3: unittest3.c dominion.o rngs.o
+	gcc -o unittest3 -g unittest3.c dominion.o rngs.o $(CFLAGS)
+
 ##Testing numHandCards
-#unittest4: unittest4.c dominion.o rngs.o
-#	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
-#
+unittest4: unittest4.c dominion.o rngs.o
+	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
+
 ##Testing Smithy
 cardtest1: cardtest1.c dominion.o rngs.o
 	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
-#
+
 ##Testing Adventurer
-#cardtest2: cardtest2.c dominion.o rngs.o
-#	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
-#
+cardtest2: cardtest2.c dominion.o rngs.o
+	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
+
 ##Testing Council Room
-#cardtest3: cardtest3.c dominion.o rngs.o
-#	gcc -o cardtest3 -g cardtest3.c dominion.o rngs.o $(CFLAGS)
-#
+cardtest3: cardtest3.c dominion.o rngs.o
+	gcc -o cardtest3 -g cardtest3.c dominion.o rngs.o $(CFLAGS)
+
 ##Testing Village
-#cardtest4: cardtest4.c dominion.o rngs.o
-#	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
+cardtest4: cardtest4.c dominion.o rngs.o
+	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
 ### End assignment 3
 
 ### End unit tests ###
@@ -137,63 +138,63 @@ randomtestadventurer.out: randomtestadventurer
 #
 ### End assignment 4
 
-### Assignment 3 
-#unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
-#	./unittest1 &> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Unit Test 1 Summary" >> unittestresult.out
-#	echo "isGameOver stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/isGameOver/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
-#	./unittest2 >> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Unit Test 2 Summary" >> unittestresult.out
-#	echo "updateCoins stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/updateCoins/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
-#	./unittest3 >> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Unit Test 3 Summary" >> unittestresult.out
-#	echo "supplyCount stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/updateCoins/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
-#	./unittest4 >> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Unit Test 4 Summary" >> unittestresult.out
-#	echo "numHandCards stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/numHandCards/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
+### Assignment 3,5 
+unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
+	./unittest1 &> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Unit Test 1 Summary" >> unittestresult.out
+	echo "isGameOver stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/isGameOver/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./unittest2 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Unit Test 2 Summary" >> unittestresult.out
+	echo "updateCoins stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/updateCoins/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./unittest3 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Unit Test 3 Summary" >> unittestresult.out
+	echo "supplyCount stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/updateCoins/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./unittest4 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Unit Test 4 Summary" >> unittestresult.out
+	echo "numHandCards stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/numHandCards/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
 	./cardtest1 >> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 	echo "Card Test 1 Summary" >> unittestresult.out
 	echo "Smithy stats" >> unittestresult.out
 	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
-#	./cardtest2 >> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Card Test 2 Summary" >> unittestresult.out
-#	echo "Adventurer stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
-#	./cardtest3 >> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Card Test 3 Summary" >> unittestresult.out
-#	echo "Council Room stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/play_council_room/{n;p; n;p; n;p; n;p}' >> unittestresult.out
-#
-#	./cardtest4 >> unittestresult.out
-#	gcov dominion.c >> unittestresult.out
-#	cat dominion.c.gcov >> unittestresult.out
-#	echo "Card Test 4 Summary" >> unittestresult.out
-#	echo "Village stats" >> unittestresult.out
-#	gcov -abcfu dominion.c | sed -n '/play_village/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./cardtest2 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Card Test 2 Summary" >> unittestresult.out
+	echo "Adventurer stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./cardtest3 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Card Test 3 Summary" >> unittestresult.out
+	echo "Council Room stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_council_room/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+
+	./cardtest4 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	echo "Card Test 4 Summary" >> unittestresult.out
+	echo "Village stats" >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/play_village/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 ### End assignment 3
 
 ### End run tests ###

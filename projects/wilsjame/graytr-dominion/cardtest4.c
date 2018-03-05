@@ -62,7 +62,8 @@ int main()
 		}
 
 		/* Play village */
-		play_village(p, &testG, handPos);
+		//play_village(p, &testG, handPos);
+		village_card(p, &testG, handPos);
 
 		/* Print hand */
 		printf("Number of actions = %d, expected = 3\n", testG.numActions);
