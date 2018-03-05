@@ -173,14 +173,14 @@ unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2
 	cat dominion.c.gcov >> unittestresult.out
 	echo "Card Test 1 Summary" >> unittestresult.out
 	echo "Smithy stats" >> unittestresult.out
-	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/smithy_card/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 
 	./cardtest2 >> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 	echo "Card Test 2 Summary" >> unittestresult.out
 	echo "Adventurer stats" >> unittestresult.out
-	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/adventurer_card/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 
 	./cardtest3 >> unittestresult.out
 	gcov dominion.c >> unittestresult.out
@@ -194,7 +194,7 @@ unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2
 	cat dominion.c.gcov >> unittestresult.out
 	echo "Card Test 4 Summary" >> unittestresult.out
 	echo "Village stats" >> unittestresult.out
-	gcov -abcfu dominion.c | sed -n '/play_village/{n;p; n;p; n;p; n;p}' >> unittestresult.out
+	gcov -abcfu dominion.c | sed -n '/village_card/{n;p; n;p; n;p; n;p}' >> unittestresult.out
 ### End assignment 3
 
 ### End run tests ###
