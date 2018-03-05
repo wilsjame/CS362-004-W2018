@@ -79,7 +79,7 @@ randomtestresult.out: randomtestadventurer randomtestcard1 randomtestcard2
 	cat dominion.c.gcov >> randomtestresult.out
 	echo "Random Test Adventurer Summary" >> randomtestresult.out
 	echo "Adventurer stats" >> randomtestresult.out
-	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
+	gcov -abcfu dominion.c | sed -n '/adventurer_card/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
 
 	./randomtestcard1 >> randomtestresult.out
 	gcov dominion.c >> randomtestresult.out
@@ -93,7 +93,7 @@ randomtestresult.out: randomtestadventurer randomtestcard1 randomtestcard2
 	cat dominion.c.gcov >> randomtestresult.out
 	echo "Random Test Card 2 Village Summary" >> randomtestresult.out
 	echo "Village stats" >> randomtestresult.out
-	gcov -abcfu dominion.c | sed -n '/play_village/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
+	gcov -abcfu dominion.c | sed -n '/village_card/{n;p; n;p; n;p; n;p}' >> randomtestresult.out
 
 randomtestcard1.out: randomtestcard1 
 
@@ -102,7 +102,7 @@ randomtestcard1.out: randomtestcard1
 	cat dominion.c.gcov >> randomtestcard1.out
 	echo "Random Test Card 1 Smithy Summary" >> randomtestcard1.out
 	echo "Smithy stats" >> randomtestcard1.out
-	gcov -abcfu dominion.c | sed -n '/play_smithy/{n;p; n;p; n;p; n;p}' >> randomtestcard1.out
+	gcov -abcfu dominion.c | sed -n '/smithy_card/{n;p; n;p; n;p; n;p}' >> randomtestcard1.out
 
 randomtestcard2.out: randomtestcard2 
 
@@ -111,7 +111,7 @@ randomtestcard2.out: randomtestcard2
 	cat dominion.c.gcov >> randomtestcard2.out
 	echo "Random Test Card 2 Village Summary" >> randomtestcard2.out
 	echo "Village stats" >> randomtestcard2.out
-	gcov -abcfu dominion.c | sed -n '/play_village/{n;p; n;p; n;p; n;p}' >> randomtestcard2.out
+	gcov -abcfu dominion.c | sed -n '/village_card/{n;p; n;p; n;p; n;p}' >> randomtestcard2.out
 
 randomtestadventurer.out: randomtestadventurer 
 
@@ -120,7 +120,7 @@ randomtestadventurer.out: randomtestadventurer
 	cat dominion.c.gcov >> randomtestadventurer.out
 	echo "Random Test Adventurer Summary" >> randomtestadventurer.out
 	echo "Adventurer stats" >> randomtestadventurer.out
-	gcov -abcfu dominion.c | sed -n '/play_adventurer/{n;p; n;p; n;p; n;p}' >> randomtestadventurer.out
+	gcov -abcfu dominion.c | sed -n '/adventurer_card/{n;p; n;p; n;p; n;p}' >> randomtestadventurer.out
 
 #	./cardtest1 >> unittestresult.out
 #	gcov dominion.c >> unittestresult.out

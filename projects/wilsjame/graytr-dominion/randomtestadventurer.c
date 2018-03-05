@@ -90,7 +90,9 @@ int main()
 			}
 
 			/* Play adventurer */
-			play_adventurer(drawntreasure, &testG, p, temphand, z);
+			//play_adventurer(drawntreasure, &testG, p, temphand, z);
+			int cardDrawn;
+			adventurer_card(p, &testG, 0, drawntreasure, cardDrawn, z, temphand);
 
 			/* Print hand */
 			printf("Player %d hand after adventurer\n", p + 1);

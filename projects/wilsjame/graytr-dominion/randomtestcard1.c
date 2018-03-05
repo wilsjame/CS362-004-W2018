@@ -52,7 +52,8 @@ int main()
 		/* Player 1 */
 		currentPlayer = 0;
 		printf("Initial p1 hand size = %d\n", testG.handCount[currentPlayer] = randomHandCount);
-		play_smithy(currentPlayer, &testG, 0);
+		//play_smithy(currentPlayer, &testG, 0);
+		smithy_card(currentPlayer, &testG, 0);
 		printf("Hand size after smithy = %d, expected = %d\n", testG.handCount[currentPlayer], randomHandCount + 3);
 
 		/* Assert */
@@ -70,7 +71,8 @@ int main()
 		/* Player 2 */
 		currentPlayer = 1;
 		printf("Initial p2 hand size = %d\n", testG.handCount[currentPlayer] = randomHandCount);
-		play_smithy(currentPlayer, &testG, 0);
+		//play_smithy(currentPlayer, &testG, 0);
+		smithy_card(currentPlayer, &testG, 0);
 		printf("Hand size after smithy = %d, expected = %d\n", testG.handCount[currentPlayer], randomHandCount + 3);
 
 		/* Assert */

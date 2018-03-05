@@ -88,7 +88,8 @@ int main()
 			*/
 
 			/* Play village */
-			play_village(p, &testG, handPos);
+			//play_village(p, &testG, handPos);
+			village_card(p, &testG, handPos);
 
 			/* Print hand and test */
 			printf("Player %d hand after village\n", p + 1);
