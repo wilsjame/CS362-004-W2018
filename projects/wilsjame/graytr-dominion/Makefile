@@ -1,5 +1,5 @@
 #Include gcov flags
-CFLAGS = -Wall -fpic -coverage -lm
+CFLAGS = -ggdb -Wall -fpic -coverage -lm
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
