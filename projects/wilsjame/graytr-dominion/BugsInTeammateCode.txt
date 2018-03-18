@@ -1,0 +1,97 @@
+==============================
+Bug Report 1 of 2
+==============================
+
+Title: Player 1 hand after adventurer unit test fail 
+ID: 1  
+
+Class: Serious Bug 
+
+Date: 4 March 2018         
+Reported By: James Wilson (wilsjame) 
+Email: wilsjame@oregonstate.edu   
+
+
+Product: Dominion Code          Version: dominion.c
+Platform: CentOS Linux          Version: 7
+Compiler: GCC                   Version: 4.8.5 20150623 (Red Hat 4.8.5-16)
+URL: https://github.com/osugraytr/CS362-004-W2018/blob/master/projects/graytr/dominion.c        
+
+Is it reproducible: Yes
+
+Description
+===========
+A unit test was created that tests the functionality of the Adventurer card.
+The test does the following for two players, 1 and 2:
+	- Set the player's hand to only curses and call adventurer
+	- Check if two treasures are now in the player's hand
+
+
+Steps to Produce/Reproduce
+--------------------------
+Execute the following commands in the working directory:
+$ make cardtest2
+$ ./cardtest2
+
+
+Expected Results
+----------------
+Two treasures are in both players' hands after running the test. 
+The output shows PASS statements and no FAIL statements. 
+
+
+Actual Results
+--------------
+Player 1 FAIL, there are zero treasures in the player's hand after playing adventuer. 
+Player 2 PASS. 
+
+
+==============================
+Bug Report 2 of 2
+==============================
+
+Title: Players' 1 and 2 hands after smithy unit test fail 
+ID: 1  
+
+Class: Serious Bug 
+
+Date: 4 March 2018         
+Reported By: James Wilson (wilsjame) 
+Email: wilsjame@oregonstate.edu   
+
+
+Product: Dominion Code          Version: dominion.c
+Platform: CentOS Linux          Version: 7
+Compiler: GCC                   Version: 4.8.5 20150623 (Red Hat 4.8.5-16)
+URL: https://github.com/osugraytr/CS362-004-W2018/blob/master/projects/graytr/dominion.c        
+
+Is it reproducible: Yes
+
+Description
+===========
+A unit test was created that tests the functionality of the Smithy card.
+The test does the following for two players, 1 and 2:
+	- Instatiate two new players
+	- Determine the players' initial hand count (expected 5) 
+	- Play smithy
+	- Determine the players' new hand counts (expected 8)
+
+
+Steps to Produce/Reproduce
+--------------------------
+Execute the following commands in the working directory:
+$ make cardtest1
+$ ./cardtest1
+
+
+Expected Results
+----------------
+Three cards have been added to both players' hands after running the test.
+The output shows PASS statements and no FAIL statements. 
+
+
+Actual Results
+--------------
+Player 1 FAIL, two cards have been added the player's hand (expected 3)
+Player 2 FAIL, two cards have been added the player's hand (expected 3) 
+
